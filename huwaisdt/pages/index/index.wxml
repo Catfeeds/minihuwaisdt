@@ -1,0 +1,77 @@
+
+<!--index.wxml-->
+<view class="page">
+<!--广告-->
+  <!--<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item.photo}}" class="slide-image" width="100%" height="180" bindtap="bannergo" data-type="{{item.type}}" data-action="{{item.action}}"/>
+      </swiper-item>
+    </block>
+  </swiper>-->
+   <view class="er">
+   <image class="faf" src="{{logo}}"></image>
+<view class="sousuo">
+     <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box" bindtap="inpu">
+                    <input type="text" class="weui-search-bar__input" placeholder="点我进行搜索" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchAction"  disabled="disabled" style="text-align:center;"/>
+              <icon class="weui-icon-search_in-box" type="search" size="16"></icon>
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="16"></icon>
+                    </view>
+                </view>
+            </view>
+        </view>
+</view>
+</view>
+
+<!--分类-->
+  <view class="df nav"  >
+    <view wx:for="{{topcat}}" class="df_1" data-id="{{item.cid}}" bindtap="toprocat" >
+        <image src="{{item.photo}}"></image>     
+        <text>{{item.name}}</text>  
+    </view>  
+  </view>
+
+<view class="xian"></view>
+<!--分类two-->
+  <view class="df nav two" >
+    <view class="df_1" bindtap="totuijian" wx:for="{{midcat}}" data-id="{{item.cid}}">
+     <view class="lie">{{item.name}}</view> 
+      <view class="sss">{{item.digest}}</view>
+        <image class="mm" src="{{item.photo}}"></image>
+    </view>
+  </view>
+  <!--我是一条分割线-->
+<view class="xian"></view>
+
+  <!--推荐内容开始-->
+<view class="name">
+   <i> 推荐商品 </i>
+</view>
+<!--横滑动--> 
+ <view class="cont">
+    <navigator class="pr" url="../detail/detail?productId={{item.id}}" hover-class="changestyle" wx:for="{{productData}}">
+    <image class="cont_image" src="{{item.photo_x}}"></image>
+      <view class="video" wx:if="{{item.v_type==1}}">
+            <image src="/images/viedo.png"></image>
+      </view>
+      <view class="title">{{item.name}} </view>
+      <view class="gmxx">
+        <view class="jiage df_11">￥{{item.price_yh}}</view> 
+        <view class="jiage df_2">原价￥{{item.price}}</view> 
+      </view>
+      <view class="gmxx df">
+           <span class="xiaoliang df_3" wx:if="{{item.is_show==1}}">新上架</span>
+           <span class="xiaoliang df_3" wx:if="{{item.is_show==0}}">销量:{{item.shiyong}}</span>  
+           <span class="xiaoliang df_4">人气：{{item.renqi}}</span> 
+      </view>
+    </navigator>
+</view>
+  <!--加载更多-->
+  <view class="clear mt10" bindtap="getMore">点击查看更多</view>
+</view>
+<view class="lll">
+    <image src="../../images/kf.png"> <contact-button></contact-button>  <contact-button></contact-button></image>
+</view>

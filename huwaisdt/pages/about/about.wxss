@@ -1,0 +1,31 @@
+/* pages/user/dingdan.wxss */
+.swiper-tab{  
+    width: 100%;
+    background: #fff;  
+    border-bottom: 1px solid #eee;  
+    text-align: center;  
+    line-height: 80rpx;
+    position: fixed;
+    top: 0;  
+    z-index: 999;
+}  
+.swiper-tab-list{  
+  font-size: 12px;  
+  display: inline-block;  
+  width: 25%;  
+  color: #666;  
+  }  
+.on{ 
+  color: #dd2727;  
+  border-bottom: 5rpx solid #dd2727;
+}  
+  
+.c_t60{
+    clear: both;
+    padding-top: 100rpx;
+}
+
+swiper {
+  display:block;
+  height:1000px;
+}

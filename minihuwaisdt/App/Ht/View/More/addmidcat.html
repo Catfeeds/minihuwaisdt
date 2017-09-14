@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<div class="aaa_pts_show_1">【 首页图标管理 】</div>
+
+<div class="aaa_pts_show_2">
+
+    <div class="aaa_pts_3">
+      <form action="{:U('savemidcat')}" method="post" onsubmit="return ac_from();" enctype="multipart/form-data">
+      <ul class="aaa_pts_5">
+         <if condition="$more eq NULL">
+         <li>
+           <div style="color:red;margin-left:20px;">请勿选择“- 产品分类（系统分类，不要删除）”</div>
+         </li>
+         <li>
+            <div class="d1">栏目名:</div>
+            <div>
+              <select class="inp_1" name="cid" id="cid">
+              <!-- 遍历 -->
+      				<volist name='procat' id="op1">
+                  <if condition="$op1.id eq $info['cid']">
+                    <option value="{$op1.id}"  selected="selected">- {$op1.name}</option>
+                  <else />
+                    <option value="{$op1.id}">- {$op1.name}</option>
+                  </if>
+                  <volist name="op1['list2']" id="op2">
+                    <if condition="$op2.id eq $info['cid']">
+                      <option value="{$op2.id}" selected="selected">&nbsp; &nbsp;- {$op2.name}</option>
+                    <else />
+                      <option value="{$op2.id}" >&nbsp; &nbsp;- {$op2.name}</option>
+                    </if>
+                    <volist name="op2['list3']" id="op3">
+                      <if condition="$op3.id eq $info['cid']">
+                        <option value="{$op3.id}" selected="selected">&nbsp; &nbsp;&nbsp; &nbsp;- {$op3.name}</option>
+                      <else />
+                        <option value="{$op3.id}">&nbsp; &nbsp;&nbsp; &nbsp;- {$op3.name}</option>
+                      </if>
+                      
+                    </volist>
+                  </volist>
+                </volist>
+      			  <!-- 遍历 -->
+              </select>
+            </div>
+         </li>
+         <else/>
+         <li><div style="color:#c00; font-size:14px; padding-left:20px;">更多设置</div></li>
+         </if>
+         <li>
+           <div class="d1">简单介绍:</div>
+           <div>
+              <input class="inp_1" name="digest" id="digest" value="{$info['digest']}"/>
+           </div>
+         </li>
+         <li>
+           <div style="color:red;margin-left:20px;">字数控制在20个以内</div>
+         </li>
+         <li><div style="color:#c00; font-size:14px; padding-left:20px;">图标尺寸 100px*100px透明底图</div></li>
+         <li data-index="0">
+            <div class="d1">图标:</div>
+            <div>
+              <?php if ($info['photo']) { ?>
+                <img src="__DATA__/<?php echo $info['photo']; ?>" width="70" height="70" /><br /><br />
+              <?php } ?>
+              <input type="file" name="file" id="photo" />
+            </div>
+         </li>
+
+         <li>
+          <input type="submit" name="submit" value="提交" class="aaa_pts_web_3" border="0">
+          <input type="hidden" name="id" value="{$info.id}">
+         </li>
+      </ul>
+      </form>
+         
+    </div>
+    
+</div>
+</body>
+</html>

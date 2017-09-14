@@ -1,0 +1,76 @@
+<!--pages/user/dingdan.wxmldisplay: flex-->
+<view class="swiper-tab">
+<scroll-view scroll-x="true" style=" white-space: nowrap; " >
+  <view class="swiper-tab-list {{currentTab==0 ?'on' : ''}}" data-current="0" bindtap="swichNav"><text style="color:#458B00">▋</text>{{data1.name}}</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">{{data2.name}}</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">{{data3.name}}</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">{{data4.name}}</view>
+  <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">{{data5.name}}</view>
+  <view class="swiper-tab-list {{currentTab==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav">{{data6.name}}</view>
+
+  </scroll-view>
+</view>
+
+
+<view class="c_t60"></view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+
+  <!-- 关于我们 -->
+  <swiper-item> 
+    <import src="../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse">
+        <scroll-view style="height:2000rpx;" scroll-y='true'>
+          <template is="wxParse" data="{{wxParseData:content1.nodes}}"/>
+        </scroll-view>
+    </view>        
+  </swiper-item>
+
+  <!-- 旗下品牌 -->
+  <swiper-item>
+    <import src="../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse">
+        <scroll-view style="height:2000rpx;" scroll-y='true'>
+          <template is="wxParse" data="{{wxParseData:content2.nodes}}"/>
+        </scroll-view>
+    </view> 
+  </swiper-item>
+
+  <!-- 分公司介绍 -->
+  <swiper-item>
+    <import src="../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse">
+        <scroll-view style="height:2000rpx;" scroll-y='true'>
+          <template is="wxParse" data="{{wxParseData:content3.nodes}}"/>
+        </scroll-view>
+    </view> 
+  </swiper-item>
+  <!-- 公益事业 -->
+  <swiper-item>
+    <import src="../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse">
+        <scroll-view style="height:2000rpx;" scroll-y='true'>
+          <template is="wxParse" data="{{wxParseData:content4.nodes}}"/>
+        </scroll-view>
+    </view> 
+  </swiper-item>
+
+  <!--专家委员-->
+  <swiper-item>
+    <import src="../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse">
+        <scroll-view style="height:2000rpx;" scroll-y='true'>
+          <template is="wxParse" data="{{wxParseData:content5.nodes}}"/>
+        </scroll-view>
+    </view>   
+  </swiper-item>
+<!--售后服务-->
+  <swiper-item>
+    <import src="../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse">
+        <scroll-view style="height:2000rpx;" scroll-y='true'>
+          <template is="wxParse" data="{{wxParseData:content6.nodes}}"/>
+        </scroll-view>
+    </view>   
+  </swiper-item>
+
+</swiper>
